@@ -2,7 +2,7 @@ import Card from "./Card";
 
 const CardGrid = ({ pokemons }) => {
   const pokemonCards = pokemons.map((pokemon) => (
-    <Card key={pokemon.id} name={pokemon.name} img={pokemon.img} />
+    <Card key={pokemon.id} name={pokemon.name} img={pokemon.image} />
   ));
 
   return (
