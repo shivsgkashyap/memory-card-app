@@ -15,6 +15,13 @@ const Main = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    if (currentScore > bestScore) {
+      setBestScore(currentScore);
+    }
+    console.log("fired");
+  }, [currentScore]);
+
   const fetchPokemons = async (amount) => {
     const pokemons = [];
 
