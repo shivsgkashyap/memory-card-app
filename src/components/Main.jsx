@@ -10,11 +10,9 @@ const Main = () => {
   const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
-    const loadCards = async () => {
+    (async () => {
       setPokemons(shuffleArray(await fetchPokemons(POKEMONS_AMOUNT)));
-    };
-
-    loadCards();
+    })();
   }, []);
 
   const fetchPokemons = async (amount) => {
@@ -43,8 +41,8 @@ const Main = () => {
 
   return (
     <main className="flex flex-col items-center p-14 gap-14 mb-12 font-quicksand">
-      <Score currentScore={currentScore} />
-      <CardGrid />
+      <Score currentScore={currentScore} bestScore={bestScore} />
+      <CardGrid pokemons={pokemons} />
     </main>
   );
 };
