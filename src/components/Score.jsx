@@ -5,7 +5,7 @@ const Score = ({ currentScore }) => {
         Current Score: {currentScore}
       </div>
       <div className="rounded-3xl bg-emerald-300 font-semibold p-2 w-1/4 text-xl text-center shadow-lg">
-        Best Score: 0
+        {bestScore}
       </div>
     </div>
   );

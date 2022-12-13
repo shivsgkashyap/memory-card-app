@@ -1,8 +1,13 @@
 import Card from "./Card";
 
-const CardGrid = ({ pokemons }) => {
+const CardGrid = ({ pokemons, handleCardClick }) => {
   const pokemonCards = pokemons.map((pokemon) => (
-    <Card key={pokemon.id} name={pokemon.name} img={pokemon.image} />
+    <Card
+      key={pokemon.id}
+      name={pokemon.name}
+      img={pokemon.image}
+      handleCardClick={handleCardClick}
+    />
   ));
 
   return (

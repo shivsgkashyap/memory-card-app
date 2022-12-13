@@ -39,10 +39,14 @@ const Main = () => {
     return [...array].sort(() => Math.random() - 0.5);
   };
 
+  const handleCardClick = (e) => {
+    console.log(e);
+  };
+
   return (
     <main className="flex flex-col items-center p-14 gap-14 mb-12 font-quicksand">
       <Score currentScore={currentScore} bestScore={bestScore} />
-      <CardGrid pokemons={pokemons} />
+      <CardGrid pokemons={pokemons} handleCardClick={handleCardClick} />
     </main>
   );
 };
