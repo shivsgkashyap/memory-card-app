@@ -31,16 +31,32 @@ const Main = () => {
     return pokemons;
   };
 
+  const handleCardClick = (e) => {
+    const pokemonName = e.target.parentNode.lastChild.textContent;
+    playRound(pokemonName);
+    setPokemons(shuffleArray(pokemons));
+  };
+
+  const playRound = (pokemonName) => {
+    if (clickedPokemons.includes(pokemonName)) {
+      resetGame();
+    } else {
+      setCurrentScore(currentScore + 1);
+      setClickedPokemons((prevState) => [...prevState, pokemonName]);
+    }
+  };
+
+  const resetGame = () => {
+    setClickedPokemons([]);
+    setCurrentScore(0);
+  };
+
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   const shuffleArray = (array) => {
     return [...array].sort(() => Math.random() - 0.5);
-  };
-
-  const handleCardClick = (e) => {
-    console.log(e);
   };
 
   return (

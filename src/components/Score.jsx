@@ -1,4 +1,4 @@
-const Score = ({ currentScore }) => {
+const Score = ({ currentScore, bestScore }) => {
   return (
     <div className="flex justify-center gap-32 w-[60rem]">
       <div className="rounded-3xl bg-rose-300 font-semibold p-2 w-1/4 text-xl text-center shadow-lg">
