@@ -4,11 +4,11 @@ import Main from "./components/Main";
 
 function App() {
   return (
-    <>
+    <div className="bg-neutral-200">
       <Header />
       <Main />
       <Footer />
-    </>
+    </div>
   );
 }
 
