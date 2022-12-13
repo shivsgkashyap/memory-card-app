@@ -4,10 +4,11 @@ import Score from "./Score";
 
 const Main = () => {
   const POKEMONS_AMOUNT = 12;
+  const savedScore = JSON.parse(localStorage.getItem("best-score")) || 0;
   const [pokemons, setPokemons] = useState([]);
   const [clickedPokemons, setClickedPokemons] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [bestScore, setBestScore] = useState(savedScore);
 
   useEffect(() => {
     (async () => {
@@ -19,8 +20,11 @@ const Main = () => {
     if (currentScore > bestScore) {
       setBestScore(currentScore);
     }
-    console.log("fired");
   }, [currentScore]);
+
+  useEffect(() => {
+    saveToLocalStorage();
+  }, [bestScore]);
 
   const fetchPokemons = async (amount) => {
     const pokemons = [];
@@ -56,6 +60,10 @@ const Main = () => {
   const resetGame = () => {
     setClickedPokemons([]);
     setCurrentScore(0);
+  };
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem("best-score", JSON.stringify(bestScore));
   };
 
   const capitalizeFirstLetter = (string) => {
