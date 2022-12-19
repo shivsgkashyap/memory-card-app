@@ -75,7 +75,7 @@ const Main = () => {
   };
 
   return (
-    <main className="flex flex-col items-center p-14 gap-14 mb-12 font-quicksand">
+    <main className="flex flex-col items-center p-8 gap-14 mb-12 font-quicksand">
       <Score currentScore={currentScore} bestScore={bestScore} />
       <CardGrid pokemons={pokemons} handleCardClick={handleCardClick} />
     </main>
